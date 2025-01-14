@@ -21,14 +21,19 @@ const NavigationBar: FC<NavigationBarProps> = () => {
 
   const tabs = [
     { label: t('nav.home'), pathname: `/${lang}` },
-    { label: 'Software', pathname: `/${lang}/${RouterPathName.software}` },
-    { label: 'Media', pathname: `/${lang}/${RouterPathName.media}` },
-    { label: 'About Us', pathname: `/${lang}/${RouterPathName.aboutUs}` },
+    {
+      label: t('nav.software'),
+      pathname: `/${lang}/${RouterPathName.software}`,
+    },
+    { label: t('nav.media'), pathname: `/${lang}/${RouterPathName.media}` },
+    { label: t('nav.aboutUs'), pathname: `/${lang}/${RouterPathName.aboutUs}` },
   ];
 
   return (
     <Container>
-      {isSoftware ? <NavIconSoftware /> : <NavIconHome />}
+      <Stack width={29}>
+        {isSoftware ? <NavIconSoftware /> : <NavIconHome />}
+      </Stack>
       <Wrapper>
         {tabs.map(item => (
           <ButtonLink

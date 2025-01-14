@@ -7,6 +7,7 @@ export enum RouterPathName {
   software = 'software',
   media = 'media',
   aboutUs = 'aboutUs',
+  legalInformation = 'legalInformation',
 }
 
 const DEFAULT_LANGUAGE = 'en';
@@ -27,6 +28,10 @@ function Router() {
       <Route path={'/:lang'} element={<HomeLayout />}>
         <Route path={'/:lang'} element={<HomeTopScreenContainer />} />
         <Route path={'/:lang/software'} element={<HomeTopScreenContainer />} />
+        <Route
+          path={'/:lang/legalInformation'}
+          element={<HomeTopScreenContainer />}
+        />
       </Route>
     </Routes>
   );

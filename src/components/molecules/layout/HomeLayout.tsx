@@ -1,8 +1,9 @@
 import React from 'react';
-import { Stack, styled } from '@mui/material';
+import { Stack } from '@mui/material';
 import { Outlet } from 'react-router';
 import NavigationBar from '../../atoms/NavigationBar';
 import { useGetSizeScreen } from '../../../hooks/useGetSizeScreen';
+import Footer from '../../atoms/Footer';
 
 const HomeLayout = () => {
   const { innerHeight } = useGetSizeScreen();
@@ -17,8 +18,3 @@ const HomeLayout = () => {
   );
 };
 export default HomeLayout;
-
-const Footer = styled(Stack)(({ theme }) => ({
-  backgroundColor: theme.colors.black.lightness1,
-  padding: theme.spacing(8.625, 12),
-}));

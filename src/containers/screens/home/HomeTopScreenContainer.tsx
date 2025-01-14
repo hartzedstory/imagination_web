@@ -1,10 +1,11 @@
 import React from 'react';
-import { Stack, Typography } from '@mui/material';
+import { Stack } from '@mui/material';
+import Banner from '../../../components/atoms/Banner';
 
 const HomeTopScreenContainer = () => {
   return (
     <Stack>
-      <Typography>Test</Typography>
+      <Banner />
     </Stack>
   );
 };
