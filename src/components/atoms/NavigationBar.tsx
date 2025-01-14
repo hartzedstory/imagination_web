@@ -1,25 +1,29 @@
 import React, { FC, useMemo } from 'react';
-import { Stack, styled, Typography } from '@mui/material';
+import { Stack, styled } from '@mui/material';
 import { ReactComponent as NavIconHome } from 'assets/svgs/nav_icon_home.svg';
 import { ReactComponent as NavIconSoftware } from 'assets/svgs/nav_icon_software.svg';
-import { useLocation, useNavigate } from 'react-router';
+import { useLocation, useNavigate, useParams } from 'react-router';
 import { RouterPathName } from '../../containers/Router';
+import LanguageSelect from './LanguageSelect';
+import { useTranslation } from 'react-i18next';
 
 interface NavigationBarProps {}
 const NavigationBar: FC<NavigationBarProps> = () => {
   const location = useLocation();
+  const { t } = useTranslation();
+  const { lang } = useParams();
   const navigate = useNavigate();
 
   const isSoftware = useMemo(
-    () => location.pathname === RouterPathName.software,
-    [location.pathname],
+    () => location.pathname === `/${lang}/${RouterPathName.software}`,
+    [lang, location.pathname],
   );
 
   const tabs = [
-    { label: 'Home', pathname: RouterPathName.home },
-    { label: 'Software', pathname: RouterPathName.software },
-    { label: 'Media', pathname: RouterPathName.media },
-    { label: 'About Us', pathname: RouterPathName.aboutUs },
+    { label: t('nav.home'), pathname: `/${lang}` },
+    { label: 'Software', pathname: `/${lang}/${RouterPathName.software}` },
+    { label: 'Media', pathname: `/${lang}/${RouterPathName.media}` },
+    { label: 'About Us', pathname: `/${lang}/${RouterPathName.aboutUs}` },
   ];
 
   return (
@@ -36,7 +40,7 @@ const NavigationBar: FC<NavigationBarProps> = () => {
           </ButtonLink>
         ))}
       </Wrapper>
-      <Typography>US</Typography>
+      <LanguageSelect />
     </Container>
   );
 };
@@ -48,10 +52,16 @@ const Container = styled(Stack)(({ theme }) => ({
   flexDirection: 'row',
   alignItems: 'center',
   justifyContent: 'space-between',
+  [theme.breakpoints.down('md')]: {
+    padding: theme.spacing(3.5, 5),
+  },
 }));
 const Wrapper = styled(Stack)(({ theme }) => ({
   gap: theme.spacing(9.5),
   flexDirection: 'row',
+  [theme.breakpoints.down('md')]: {
+    gap: theme.spacing(3),
+  },
 }));
 const ButtonLink = styled(Stack, {
   shouldForwardProp: props => props !== 'active',
