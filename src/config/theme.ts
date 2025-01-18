@@ -45,7 +45,7 @@ export const colors: ThemeColors = {
     lightness2: '#3C5A99',
     lightness3: '#1DA1F2',
     lightness4: '#C2E0FF',
-    lightness5: '#F0F7FF',
+    lightness5: '#03EFEF',
     darkness1: '#003A75',
   },
   yellow: {
@@ -137,7 +137,7 @@ export const themeOptions: ThemeOptions = {
     },
     body2: {
       fontSize: 12,
-      lineHeight: '16px',
+      lineHeight: '15.6px',
     },
     caption: {
       fontSize: 10,

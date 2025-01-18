@@ -39,6 +39,7 @@
     "react-slick": "^0.29.0",
     "react-spring": "^9.7.2",
     "react-spring-bottom-sheet": "3.5.0-alpha.0",
+    "react-stacked-center-carousel": "^1.0.14",
     "shelljs": "^0.8.5",
     "slick-carousel": "^1.8.1",
     "styled-components": "^6.0.5",

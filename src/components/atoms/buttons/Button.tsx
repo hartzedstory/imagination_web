@@ -20,7 +20,8 @@ interface ButtonBgProps {
     | 'curved'
     | 'sharp'
     | 'topRounded'
-    | 'bottomRounded';
+    | 'bottomRounded'
+    | 'noBorder';
   bordered: boolean;
   backgroundColor: string;
   disabledBackgroundColor?: string;
@@ -40,6 +41,7 @@ const getBorderRadius = (
   p: ButtonBgProps,
   type: 'topRounded' | 'bottomRounded',
 ) => {
+  if (p.corner === 'noBorder') return '0';
   if (type === 'topRounded') return `${getBorderNumber(p, 'topRounded')}px`;
   return `${getBorderNumber(p, 'bottomRounded')}px`;
 };
@@ -99,14 +101,15 @@ interface ButtonProps {
   disabled?: boolean;
   onPress?(e: React.MouseEvent<HTMLElement, MouseEvent>): void | Promise<void>;
   children?: string | ReactNode | ReactNode[];
-  height?: 24 | 28 | 32 | 36 | 40 | 48 | 56;
+  height?: 24 | 28 | 32 | 34 | 36 | 40 | 48 | 56;
   corner?:
     | 'rounded'
     | 'largeRounded'
     | 'curved'
     | 'sharp'
     | 'topRounded'
-    | 'bottomRounded';
+    | 'bottomRounded'
+    | 'noBorder';
   bordered?: boolean;
   loading?: boolean;
   LeftSideIcon?: React.ReactElement;
@@ -184,8 +187,8 @@ const ButtonBase: FC<
               }
               fontFamily='Aeonik'
               fontWeight={700}
-              fontSize={height <= 32 ? 20 : 16}
-              lineHeight={height <= 32 ? '24px' : '20px'}
+              fontSize={16}
+              lineHeight={'20.8px'}
               sx={textStyle}
             >
               {children}
@@ -212,11 +215,11 @@ export const Button: FC<ButtonProps & { invert?: boolean }> = ({
   return (
     <ButtonBase
       {...props}
-      backgroundColor={theme.colors.tertiary.base}
-      disabledBackgroundColor={theme.colors.tertiary.darkness2}
-      borderColor={theme.colors.white.base}
+      backgroundColor={theme.colors.lime.base}
+      disabledBackgroundColor={theme.colors.lime.lightness2}
+      borderColor={theme.colors.lime.base}
       disabledTextColor={theme.colors.gray.base}
-      enabledTextColor={theme.colors.white.base}
+      enabledTextColor={theme.colors.black.base}
     />
   );
 };
@@ -253,15 +256,15 @@ export const PurpleButton: FC<ButtonProps> = props => {
   );
 };
 
-export const LimeButton: FC<ButtonProps> = props => {
+export const BlueButton: FC<ButtonProps> = props => {
   const theme = useTheme();
   return (
     <ButtonBase
       {...props}
-      backgroundColor={theme.colors.lime.base}
-      borderColor={theme.colors.lime.base}
+      backgroundColor={'#03EFEF'}
+      borderColor={'#03EFEF'}
       disabledTextColor={theme.colors.gray.base}
-      enabledTextColor={theme.colors.tertiary.base}
+      enabledTextColor={'#000000'}
     />
   );
 };

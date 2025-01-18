@@ -7,6 +7,9 @@ import { RouterPathName } from '../../containers/Router';
 import LanguageSelect from './LanguageSelect';
 import { useTranslation } from 'react-i18next';
 
+export const HEIGHT_HEADER_FULL = 145;
+export const HEIGHT_HEADER_MD = 97;
+
 interface NavigationBarProps {}
 const NavigationBar: FC<NavigationBarProps> = () => {
   const location = useLocation();
@@ -30,7 +33,7 @@ const NavigationBar: FC<NavigationBarProps> = () => {
   ];
 
   return (
-    <Container>
+    <Container isSoftware={isSoftware}>
       <Stack width={29}>
         {isSoftware ? <NavIconSoftware /> : <NavIconHome />}
       </Stack>
@@ -40,6 +43,7 @@ const NavigationBar: FC<NavigationBarProps> = () => {
             key={item.pathname}
             active={location.pathname === item.pathname}
             onClick={() => navigate(item.pathname)}
+            isSoftware={isSoftware}
           >
             {item.label}
           </ButtonLink>
@@ -51,14 +55,18 @@ const NavigationBar: FC<NavigationBarProps> = () => {
 };
 export default NavigationBar;
 
-const Container = styled(Stack)(({ theme }) => ({
+const Container = styled(Stack, {
+  shouldForwardProp: props => props !== 'isSoftware',
+})<{ isSoftware: boolean }>(({ theme, isSoftware }) => ({
   padding: theme.spacing(6.5, 12.5),
-  borderBottom: `1px solid ${theme.colors.lime.base}`,
+  height: HEIGHT_HEADER_FULL,
+  borderBottom: `1px solid ${isSoftware ? theme.colors.blue.lightness5 : theme.colors.lime.base}`,
   flexDirection: 'row',
   alignItems: 'center',
   justifyContent: 'space-between',
   [theme.breakpoints.down('md')]: {
-    padding: theme.spacing(3.5, 5),
+    height: HEIGHT_HEADER_MD,
+    padding: theme.spacing(0, 5),
   },
 }));
 const Wrapper = styled(Stack)(({ theme }) => ({
@@ -69,20 +77,28 @@ const Wrapper = styled(Stack)(({ theme }) => ({
   },
 }));
 const ButtonLink = styled(Stack, {
-  shouldForwardProp: props => props !== 'active',
-})<{ active?: boolean }>(({ theme, active }) => ({
-  padding: theme.spacing(0.5625, 1.75, 0.8125),
-  border: `1px solid ${theme.colors.lime.base}`,
-  color: active ? theme.colors.black.base : theme.colors.white.base,
-  fontWeight: 700,
-  fontSize: 16,
-  lineHeight: '20.8px',
-  cursor: 'pointer',
-  backgroundColor: active ? theme.colors.lime.base : 'none',
-  transition: 'all 0.3s ease',
-  '&:hover': {
-    backgroundColor: theme.colors.lime.base,
-    color: theme.colors.black.base,
-    borderColor: theme.colors.black.base,
-  },
-}));
+  shouldForwardProp: props => props !== 'active' && props !== 'isSoftware',
+})<{ active?: boolean; isSoftware: boolean }>(
+  ({ theme, active, isSoftware }) => ({
+    padding: theme.spacing(0.5625, 1.75, 0.8125),
+    border: `1px solid ${isSoftware ? theme.colors.blue.lightness5 : theme.colors.lime.base}`,
+    color: active ? theme.colors.black.base : theme.colors.white.base,
+    fontWeight: 700,
+    fontSize: 16,
+    lineHeight: '20.8px',
+    cursor: 'pointer',
+    backgroundColor: active
+      ? isSoftware
+        ? theme.colors.blue.lightness5
+        : theme.colors.lime.base
+      : 'none',
+    transition: 'all 0.3s ease',
+    '&:hover': {
+      backgroundColor: isSoftware
+        ? theme.colors.blue.lightness5
+        : theme.colors.lime.base,
+      color: theme.colors.black.base,
+      borderColor: theme.colors.black.base,
+    },
+  }),
+);
