@@ -12,7 +12,9 @@ const HomeLayout = () => {
   const { lang } = useParams();
 
   const hiddenFooter = useMemo(
-    () => location.pathname === `/${lang}/${RouterPathName.software}`,
+    () =>
+      location.pathname === `/${lang}/${RouterPathName.software}` ||
+      location.pathname === `/${lang}/${RouterPathName.media}`,
     [lang, location.pathname],
   );
 

@@ -3,21 +3,22 @@ import { Stack } from '@mui/material';
 import Banner from '../../../components/atoms/Banner';
 import ContentBox from '../../../components/atoms/ContentBox';
 import { useTranslation } from 'react-i18next';
-import YoutubeInhouse from '../../../components/atoms/YoutubeInhouse';
-import Outsource from '../../../components/atoms/Outsource';
+import Member from '../../../components/atoms/Member';
+import MemberFusion from '../../../components/atoms/MemeberFusion';
 
-const MediaScreenContainer = () => {
+const AboutUsContainer = () => {
   const { t } = useTranslation();
   return (
     <Stack>
       <Banner />
       <ContentBox
-        title={t('media.content.title')}
-        description={t('media.content.description')}
+        title={t('aboutUs.content.title')}
+        description={t('aboutUs.content.description')}
+        hideCheckPoint
       />
-      <YoutubeInhouse />
-      <Outsource />
+      <Member />
+      <MemberFusion />
     </Stack>
   );
 };
-export default MediaScreenContainer;
+export default AboutUsContainer;

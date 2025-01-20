@@ -22,7 +22,7 @@ const YoutubeInhouse: FC<YoutubeInhouseProps> = () => {
 
   const { openLink } = useOpenLink();
   const { t } = useTranslation();
-  console.log('videoData', videoData);
+
   useEffect(() => {
     const fetchVideos = async () => {
       const promises = youtubeInhouseData.map(item =>
@@ -127,6 +127,7 @@ const YoutubeInhouse: FC<YoutubeInhouseProps> = () => {
           );
         })}
       </Stack>
+      <Cycle />
     </Container>
   );
 };
@@ -135,7 +136,7 @@ export default YoutubeInhouse;
 const Container = styled(Stack)(({ theme }) => ({
   width: '100%',
   alignItems: 'center',
-  padding: theme.spacing(0, 11.375, 15),
+  padding: theme.spacing(0, 11.375),
 }));
 const ThumbnailImg = styled('img')(() => ({
   width: '40%',
@@ -166,6 +167,13 @@ const LocalizedWrapper = styled(Stack)(({ theme }) => ({
   flex: 1,
   padding: theme.spacing(2, 0, 0.5),
   justifyContent: 'space-between',
+}));
+const Cycle = styled(Stack)(({ theme }) => ({
+  width: 30,
+  height: 30,
+  borderRadius: 60,
+  margin: theme.spacing(15, 0),
+  backgroundColor: theme.colors.lime.base,
 }));
 const TitleLocalized = styled(Typography)(
   () => `

@@ -60,3 +60,132 @@ export const youtubeInhouseData = [
   { id: 2, youtubeKey: 'vlro8MYGEEQ' },
   { id: 3, youtubeKey: 'gughx6qn42Q' },
 ];
+
+export const outsourceData = [
+  {
+    id: 1,
+    imageUrl: '',
+    name: '',
+    projectName: 'Photo',
+    describe: 'Aser',
+    productUrl: '',
+  },
+  {
+    id: 2,
+    imageUrl: '',
+    name: '',
+    projectName: 'Photo',
+    describe: 'Aser',
+    productUrl: '',
+  },
+  {
+    id: 3,
+    imageUrl: '',
+    name: '',
+    projectName: 'Check Task',
+    describe: '',
+    productUrl: '',
+  },
+  {
+    id: 4,
+    imageUrl: '',
+    name: '',
+    projectName: 'Check Task',
+    describe: '',
+    productUrl: '',
+  },
+  {
+    id: 5,
+    imageUrl: '',
+    name: '',
+    projectName: 'Check Task',
+    describe: '',
+    productUrl: '',
+  },
+  {
+    id: 6,
+    imageUrl: '',
+    name: '',
+    projectName: 'Check Task',
+    describe: '',
+    productUrl: '',
+  },
+];
+
+export const memberData = [
+  {
+    id: 1,
+    imageUrl: '',
+    name: 'Nguyễn Anh Đức',
+    role: 'Chief Operating Officer',
+  },
+  {
+    id: 2,
+    imageUrl: '',
+    name: 'Nguyễn Quang Anh',
+    role: 'Chief Medical Officer',
+  },
+  {
+    id: 3,
+    imageUrl: '',
+    name: 'Long Do',
+    role: '',
+  },
+  {
+    id: 4,
+    imageUrl: '',
+    name: 'Long Do',
+    role: '',
+  },
+  {
+    id: 5,
+    imageUrl: '',
+    name: 'Long Do',
+    role: '',
+  },
+  {
+    id: 6,
+    imageUrl: '',
+    name: 'Long Do',
+    role: '',
+  },
+];
+
+export const memberFusionData = [
+  {
+    id: 1,
+    imageUrl: '',
+    name: 'Nguyễn Anh Đức',
+    role: 'Chief Operating Officer',
+  },
+  {
+    id: 2,
+    imageUrl: '',
+    name: 'Nguyễn Quang Anh',
+    role: 'Chief Medical Officer',
+  },
+  {
+    id: 3,
+    imageUrl: '',
+    name: 'Long Do',
+    role: '',
+  },
+  {
+    id: 4,
+    imageUrl: '',
+    name: 'Long Do',
+    role: '',
+  },
+  {
+    id: 5,
+    imageUrl: '',
+    name: 'Long Do',
+    role: '',
+  },
+  {
+    id: 6,
+    imageUrl: '',
+    name: 'Long Do',
+    role: '',
+  },
+];

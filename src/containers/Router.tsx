@@ -4,6 +4,8 @@ import HomeLayout from '../components/molecules/layout/HomeLayout';
 import HomeTopScreenContainer from './screens/home/HomeTopScreenContainer';
 import SoftwareScreenContainer from './screens/software/SoftwareScreenContainer';
 import MediaScreenContainer from './screens/media/MediaScreenContainer';
+import AboutUsContainer from './screens/aboutUs/AboutUs';
+import LegalInformationContainer from './screens/legalInformation/LegalInformation';
 
 export enum RouterPathName {
   software = 'software',
@@ -31,10 +33,10 @@ function Router() {
         <Route path={'/:lang'} element={<HomeTopScreenContainer />} />
         <Route path={'/:lang/software'} element={<SoftwareScreenContainer />} />
         <Route path={'/:lang/media'} element={<MediaScreenContainer />} />
-        <Route path={'/:lang/aboutUs'} element={<HomeTopScreenContainer />} />
+        <Route path={'/:lang/aboutUs'} element={<AboutUsContainer />} />
         <Route
           path={'/:lang/legalInformation'}
-          element={<HomeTopScreenContainer />}
+          element={<LegalInformationContainer />}
         />
       </Route>
     </Routes>
