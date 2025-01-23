@@ -37,8 +37,8 @@ const Explore: FC<ExploreProps> = ({ order, onSeeMore }) => {
         <Image
           src={
             order === 1
-              ? require('../../assets/images/explore1.png')
-              : require('../../assets/images/explore2.png')
+              ? require('../../assets/images/explore1.webp')
+              : require('../../assets/images/explore2.webp')
           }
         />
       </Stack>
