@@ -2,7 +2,7 @@ export const productData = [
   {
     id: 1,
     imageUrl: '',
-    name: 'Check',
+    name: 'Check reminder',
     projectName: 'Check Task',
     describe: 'Mobile App, Checklist',
     productUrl: '',
